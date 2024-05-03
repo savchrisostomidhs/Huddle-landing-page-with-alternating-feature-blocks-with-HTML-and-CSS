@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Huddle landing page with alternating feature blocks</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+    :root {
+      --Pink: hsl(322, 100%, 66%);
+      --Very-Pale-Cyan: hsl(193, 100%, 96%);
+      --Very-Dark-Cyan: hsl(192, 100%, 9%);
+      --Grayish-Blue: hsl(208, 11%, 55%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Open Sans";
+      font-size: 18px;
+      display: grid;
+      grid-template-areas: "header" "main" "footer";
+    }
+
+    h1,
+    h2 {
+      font-family: Poppins;
+      color: var(--Very-Dark-Cyan);
+    }
+
+    p {
+      color: var(--Very-Dark-Cyan);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    header {
+      background-image: url(./images/bg-hero-mobile.svg);
+      background-repeat: no-repeat;
+      background-color: var(--Very-Pale-Cyan);
+      grid-area: header;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    header .head img {
+      width: 240px;
+      height: 39px;
+      width: 35%;
+      height: 35%;
+    }
+
+    header .head button {
+      font-family: "Open Sans";
+      background-color: white;
+      font-weight: 700;
+      width: 30%;
+      height: 25px;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 5px 20px 0 hsla(208, 11%, 55%, 0.4);
+      cursor: pointer;
+    }
+
+    header .head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 100px;
+    }
+
+    header .tp {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header .tp h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    header .tp button {
+      margin: 40px 0;
+      border: none;
+      background-color: var(--Pink);
+      height: 40px;
+      width: 70%;
+      border-radius: 40px;
+      cursor: pointer;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 5px 10px 0 hsla(208, 11%, 55%, 0.4);
+    }
+
+    header .tp .photo img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    main {
+      grid-area: main;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .first,
+    .second,
+    .third,
+    .fourth {
+      background-color: white;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      width: 100%;
+      box-shadow: 0 0 20px 0 hsla(208, 11%, 55%, 0.4);
+      padding: 30px;
+      text-align: center;
+    }
+
+    main h2 {
+      margin: 20px 0;
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    main p {
+      color: var(--Grayish-Blue);
+    }
+
+    .first,
+    .third {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .fourth {
+      margin: 0;
+      padding: 10px 5px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      bottom: -110px;
+      box-shadow: none;
+    }
+
+    .fourth button {
+      border: none;
+      color: white;
+      font-weight: 700;
+      background-color: var(--Pink);
+      height: 40px;
+      width: 60%;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px 0 hsla(208, 11%, 55%, 0.4);
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: var(--Very-Dark-Cyan);
+      padding: 200px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    footer img {
+      color: white;
+    }
+
+    footer p {
+      color: white;
+    }
+
+    .loc {
+      width: 13px;
+      height: 18px;
+    }
+
+    .phone {
+      width: 18px;
+      height: 18px;
+    }
+
+    .email {
+      width: 20px;
+      height: 16px;
+    }
+
+    .foot1>img {
+      filter: invert(96%) sepia(2%) saturate(0%) hue-rotate(277deg) brightness(110%) contrast(101%);
+      width: 240px;
+      height: 39px;
+      width: 50%;
+      height: 50%;
+    }
+
+    .foot1,
+    .foot2,
+    .foot3,
+    .foot4 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .foot1 p>img {
+      margin-right: 10px;
+    }
+
+    .foot2 a,
+    .foot3 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .foot4 .icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .foot4 .icons a {
+      border-radius: 50%;
+      border: 1px solid white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .foot4 .icons a svg {
+      filter: invert(96%) sepia(2%) saturate(0%) hue-rotate(277deg) brightness(110%) contrast(101%);
+    }
+
+    .foot4 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .foot4 p {
+      align-self: center;
+      text-align: center;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .foot2 a:hover,
+    .foot3 a:hover {
+      text-decoration: underline;
+    }
+
+    .foot4 .icons a:hover svg {
+      filter: none;
+      filter: invert(54%) sepia(38%) saturate(5372%) hue-rotate(295deg) brightness(103%) contrast(101%);
+    }
+
+    .foot4 .icons a:hover {
+      border-color: var(--Pink);
+    }
+
+    @media (min-width: 376px) {
+      header {
+        background-image: url(./images/bg-hero-desktop.svg);
+      }
+    }
+
+    @media (min-width: 481px) {
+      header .head {
+        margin-bottom: 40px;
+      }
+
+      header .head img{
+        width: 12%;
+      }
+
+      header .head button {
+        width: 12%;
+        height: 30px;
+      }
+
+      header {
+        padding: 40px;
+      }
+
+      header .tp {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+
+      header .text {
+        width: 40%;
+        text-align: left;
+      }
+
+      header .text h1 {
+        font-size: 34px;
+      }
+
+      header .text button {
+        width: 50%;
+      }
+
+      header .photo {
+        width: 60%;
+      }
+
+      header .photo img {
+        padding: 20px;
+      }
+
+      main {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .first img, .second img, .third img {
+        width: 40%;
+      }
+
+      .first, .second, .third {
+        padding-left: 80px;
+        justify-content: space-between;
+      }
+
+      main .first, main .third {
+        flex-direction: row;
+      }
+
+      main .second {
+        display: flex;
+      }
+
+      .text1, .text2, .text3 {
+        align-self: center;
+        text-align: left;
+        width: 40%;
+      }
+
+      main .fourth {
+        width: 50%;
+        align-self: center;
+      }
+
+      main .fourth h2 {
+        margin-top: -20px;
+      }
+
+      main .fourth button {
+        width: 45%;
+        height: 50px;
+      }
+
+      footer {
+        flex-direction: row;
+        padding: 200px 40px 60px;
+        gap: 40px;
+        font-size: 14px;
+      }
+
+      .foot1, .foot2, .foot3, .foot4 {
+       /*  width: 25%; */
+        /* gap: 0; */
+      }
+
+
+      .foot1, .foot4 {
+        width: 30%;
+      }
+
+      .foot2, .foot3 {
+        justify-content: center;
+        align-items: none;
+        gap: 20px;
+        width: 20%;
+        margin-top: 30px;
+      }
+
+      .foot3 {
+        margin-left: -50px;
+      }
+
+      .foot1> img {
+        margin-bottom: 20px;
+      }
+
+      .foot1 p {
+        display: flex;
+        gap: 5px;
+      }
+
+      .foot1 {
+        margin-right: 80px;
+      }
+
+      .foot4 .icons {
+        margin-top: 60px;
+      }
+
+      .foot4> p {
+        margin-bottom: -20px;
+      }
+
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      display: none;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="head">
+      <img src="./images/logo.svg" alt="logo">
+
+      <button>Try It Free</button>
+    </div>
+    <div class="tp">
+      <div class="text">
+        <h1>Build The Community Your Fans Will Love</h1>
+
+        <p>Huddle re-imagines the way we build communities. You have a voice, but so does your audience.
+          Create connections with your users as you engage in genuine discussion.</p>
+
+        <button>Get Started For Free</button>
+      </div>
+      <div class="photo">
+        <img src="./images/illustration-mockups.svg" alt="mockups">
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="first">
+      <div class="text1">
+        <h2>Grow Together</h2>
+
+        <p>Generate meaningful discussions with your audience and build a strong, loyal community.
+          Think of the insightful conversations you miss out on with a feedback form.</p>
+      </div>
+      <img src="./images/illustration-grow-together.svg" alt="grow-together">
+    </div>
+    <div class="second">
+      <img src="./images/illustration-flowing-conversation.svg" alt="conversation">
+      <div class="text2">
+        <h2>Flowing Conversations</h2>
+
+        <p>You wouldn't paginate a conversation in real life, so why do it online? Our threads
+          have just-in-time loading for a more natural flow.</p>
+      </div>
+    </div>
+    <div class="third">
+      <div class="text3">
+        <h2>Your Users</h2>
+
+        <p>It takes no time at all to integrate Huddle with your app's authentication solution.
+          This means, once signed in to your app, your users can start chatting immediately.</p>
+      </div>
+      <img src="./images/illustration-your-users.svg" alt="users">
+    </div>
+    <div class="fourth">
+      <h2>Ready To Build Your Community?</h2>
+
+      <button>Get Started For Free</button>
+    </div>
+  </main>
+  <footer>
+    <div class="foot1">
+      <img src="./images/logo.svg" alt="logo">
+
+      <p><img class="loc" src="./images/icon-location.svg" alt="location">Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit,
+        sed
+        do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua</p>
+
+      <p><img class="phone" src="./images/icon-phone.svg" alt="phone">+1-543-123-4567</p>
+
+      <p><img class="email" src="./images/icon-email.svg" alt="email">example@huddle.com</p>
+    </div>
+    <div class="foot2">
+      <a href="">About Us</a>
+      <a href="">What We Do</a>
+      <a href="">FAQ</a>
+    </div>
+    <div class="foot3">
+      <a href="">Career</a>
+      <a href="">Blog</a>
+      <a href="">Contact Us</a>
+    </div>
+    <div class="foot4">
+      <div class="icons">
+        <a href="#"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"
+              fill="#4C545C" fill-rule="nonzero" />
+          </svg></a>
+        <a href="#"><svg width="24" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M24 2.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337.608a9.864 9.864 0 01-3.127 1.195A4.916 4.916 0 0016.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 1.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 2.557z"
+              fill="#4C545C" fill-rule="nonzero" />
+          </svg></a>
+        <a href="#"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+              fill="#4C545C" fill-rule="nonzero" />
+          </svg></a>
+      </div>
+      <p>&copy; Copyright 2018 Huddle. All rights reserved.</p>
+    </div>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+</body>
+
+</html>
